@@ -1,0 +1,25 @@
+﻿@model Udemy.ViewModels.RandomMovieViewModel
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{ 
+    var classname = Model.Customers.Count > 0 ? "Popular" : null;
+}
+
+@* This is my first comment line in ASP .NET*@
+
+<h2 class= "@classname">@Model.movie.Name</h2>
+@if(Model.Customers.Count == 0)
+{
+    <p> No one has rented this movie before.</p>
+}
+else
+{
+    <ul>
+        @foreach (var customer in Model.Customers)
+        {
+            <li>@customer.Name</li>
+        }
+    </ul>
+}
